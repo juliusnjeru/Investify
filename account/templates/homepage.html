@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Investify today!{% endblock %}
+
+{% include 'navbar.html' %}
+{% block content %}
+<h2 style="text-align:center;">Hello {{user.username}}!</h2>
+<div class="container my-5" style="height: 90vh auto">
+    <div class="row">
+
+        <div class="col-md-4 mx-auto text-center">
+            <i class="fas fa-wallet fa-5x text-muted mb-3"></i>
+            <h1 class="display-4">${{account.balance}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mx-auto d-flex justify-content-center">
+            <a href="#" class="btn btn-success mr-3">Deposit</a>
+            <a href="#" class="btn btn-danger">Withdraw</a>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-8 mx-auto">
+            <h3 class="text-center">Records</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Transaction Type</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ record.date_time }}</td>
+                    <td>{{ record.amount }}</td>
+                    <td>{{ record.transaction_type }}</td>
+                    <td>{{ record.description }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

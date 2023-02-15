@@ -1,0 +1,20 @@
+<h1>Your Account Information</h1>
+<p>Balance: {{ account.balance }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="deposit">
+    <input type="number" name="amount">
+    {% if account.balance == 0 %}
+    <button type="submit">Deposit</button>
+    {% else %}
+    <button type="submit">Deposit Another Amount</button>
+    {% endif %}
+</form>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="withdraw">
+    <input type="number" name="amount">
+    <button type="submit">Withdraw</button>
+</form>
